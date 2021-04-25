@@ -115,21 +115,22 @@ function hungryDog(dogWeight, age, foodWeight) {
 			return (foodWeight = dogWeight * 0.04);
 		} else if (dogWeight > 10 && dogWeight <= 15) {
 			return (foodWeight = dogWeight * 0.03);
-		} else if (dogWeight > 15) {
-			return (foodWeight = dogWeight * 0.02);
-		}
+		} else dogWeight > 15;
+		return (foodWeight = dogWeight * 0.02);
 	} else {
 		if (age < 1) {
 			if (age >= 0.16 && age <= 0.34) {
 				return (foodWeight = dogWeight * 0.1);
 			} else if (age > 0.34 && age <= 0.59) {
 				return (foodWeight = dogWeight * 0.05);
-			} else if (age > 0.59 && age <= 0.99) {
-				return (foodWeight = dogWeight * 0.04);
-			}
+			} else age > 0.59 && age <= 0.99;
+			foodWeight = dogWeight * 0.04;
 		}
 	}
+	console.log(`Dog weighted statistic -->`, foodWeight);
+	return foodWeight;
 }
+
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
 // Rock, Paper, Scissors - Let's play against the computer!
@@ -150,9 +151,44 @@ Use the game function below to do the following:
   
   HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
+const computer = Math.random();
 
 function game(user, computer) {
-	/*add your code here*/
+	let computersChoice = "";
+	let result = "";
+	function computerPick(computer) {
+		if (computer <= 1 && computer > 0.66666) {
+			computersChoice = "rock";
+		} else if (computer <= 0.666666 && computer > 0.34) {
+			computersChoice = "scissors";
+		} else if (computer <= 0.333333) {
+			computersChoice = "paper";
+		}
+		return computersChoice;
+	}
+
+	console.log(computerPick(computer));
+
+	if (computersChoice === "rock" && user === "rock") {
+		result = "it's a tie";
+	} else if (computersChoice === "rock" && user === "paper") {
+		result = "you win!";
+	} else if (computersChoice === "rock" && user === "scissors") {
+		result = "you win!";
+	} else if (computersChoice === "paper" && user === "rock") {
+		result = "you lose!";
+	} else if (computersChoice === "paper" && user === "paper") {
+		result = "it's a tie";
+	} else if (computersChoice === "paper" && user === "scissors") {
+		result = "you win!";
+	} else if (computersChoice === "scissors" && user === "rock") {
+		result = "you win!";
+	} else if (computersChoice === "scissors" && user === "paper") {
+		result = "you lose!";
+	} else if (computersChoice === "scissors" && user === "scissors") {
+		result = "it's a tie";
+	}
+	return result;
 }
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -166,11 +202,10 @@ Using the miles function below do the following:
   3. Return the number of miles
 */
 
-function miles(km, milmulti) {
-	km = 1;
-	milmulti = 0.621371;
-	const miles = km * milmulti;
-	console.log(miles);
+function miles(km, mconvert) {
+	km = 10;
+	mconvert = 0.621371;
+	return km * mconvert;
 }
 
 //Task 5b - Feet to CM
@@ -181,8 +216,10 @@ Using the feet function below do the following:
   3. Return number of feet
 */
 
-function feet(/*add your code here*/) {
-	/*add your code here*/
+function feet(cm, ftconvert) {
+	cm = 160;
+	ftconvert = 30.48;
+	return cm / ftconvert;
 }
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -195,8 +232,17 @@ Using the annoyingSong function below do the following:
       "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/) {
-	/*add your code here*/
+function annoyingSong(num) {
+	for (let i = num; i > 0; i--) {
+		console.log(
+			i +
+				" bottles of soda on the wall, " +
+				i +
+				" bottles of soda, take one down pass it around " +
+				(i - 1) +
+				" bottles of soda on the wall."
+		);
+	}
 }
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -214,8 +260,17 @@ Using the grade function below do the following:
    below should return 'you got an F'
 */
 
-function grade(/*Your Code here */) {
-	/*Your Code here */
+function grade(score) {
+	if (score >= 90) {
+		return "you got an A";
+	} else if (score >= 80) {
+		return "you got a B";
+	} else if (score >= 70) {
+		return "you got a C";
+	} else if (score >= 60) {
+		return "you got a D";
+	} else score < 60;
+	return "you got an F";
 }
 
 /*💪💪💪💪💪💪💪💪💪💪 Stretch 💪💪💪💪💪💪💪💪💪💪*/

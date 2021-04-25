@@ -36,7 +36,11 @@ Do the following:
    HINT: no function required
 */
 let varfirst = "first";
-
+let varsecond = "second";
+if (varfirst === "first") {
+	varfirst = varsecond;
+}
+console.log(varfirst);
 /*
 Task 1c - Convert Strings to Numbers
 
@@ -47,7 +51,8 @@ Do the following:
 
    HINT: look up the Number method
 */
-
+let yearint = parseInt("1999");
+console.log(yearint);
 /*
 Task 1d - Multiply
  
@@ -75,7 +80,6 @@ function dogYears(humanYears, dogMulti) {
 	dogMulti = 7;
 	return humanYears * dogMulti;
 }
-console.log(multiply(3, dogMulti));
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
 //Dog feeder - Depending on their weight and age, we need to know how many pounds of food to feed our dog each day!
@@ -103,10 +107,29 @@ Use the hungryDog function and feeding requirements below to do the following:
   NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */
 
-function hungryDog(weight, age) {
-	/*add your code here*/
+function hungryDog(dogWeight, age, foodWeight) {
+	if (age >= 1) {
+		if (dogWeight <= 5) {
+			return (foodWeight = dogWeight * 0.05);
+		} else if (dogWeight > 5 && dogWeight <= 10) {
+			return (foodWeight = dogWeight * 0.04);
+		} else if (dogWeight > 10 && dogWeight <= 15) {
+			return (foodWeight = dogWeight * 0.03);
+		} else if (dogWeight > 15) {
+			return (foodWeight = dogWeight * 0.02);
+		}
+	} else {
+		if (age < 1) {
+			if (age >= 0.16 && age <= 0.34) {
+				return (foodWeight = dogWeight * 0.1);
+			} else if (age > 0.34 && age <= 0.59) {
+				return (foodWeight = dogWeight * 0.05);
+			} else if (age > 0.59 && age <= 0.99) {
+				return (foodWeight = dogWeight * 0.04);
+			}
+		}
+	}
 }
-
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
 // Rock, Paper, Scissors - Let's play against the computer!
@@ -143,8 +166,11 @@ Using the miles function below do the following:
   3. Return the number of miles
 */
 
-function miles(/*add your code here*/) {
-	/*add your code here*/
+function miles(km, milmulti) {
+	km = 1;
+	milmulti = 0.621371;
+	const miles = km * milmulti;
+	console.log(miles);
 }
 
 //Task 5b - Feet to CM
